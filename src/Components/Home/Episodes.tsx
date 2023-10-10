@@ -2,16 +2,13 @@ import { useQuery } from "@apollo/client";
 import { GET_EPISODES } from "../../Graphql/query";
 import { Episode } from "../../Graphql/__generated__/graphql";
 import SinglEpisode from "./Episode";
-import React from "react";
+import { epImages } from "../../utils/ImagesArray";
 
 export interface EpImageType {
   id: string;
   imgUrl: string;
 }
 
-const epImages = [
-  { id: "1", imgUrl: "https://flxt.tmsimg.com/assets/p10399541_i_h10_aa.jpg" },
-];
 const Episodes = () => {
   const { data, error, loading } = useQuery(GET_EPISODES);
 
@@ -28,7 +25,7 @@ const Episodes = () => {
   const { results } = data?.episodes as { results: Episode[] };
 
   return (
-    <div>
+    <div className="grid grid-cols-6 gap-10 mt-20">
       {results?.map((episode) => {
         return epImages?.map((epImage: EpImageType) => {
           if (episode?.id === epImage.id) {
