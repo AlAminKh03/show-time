@@ -2,3 +2,12 @@ body {
   font-family: "Inter", sans-serif;
   padding: 0 50px;
 }
+
+.animate-spin-slow {
+  animation: spin 4s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -4,6 +4,8 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router/router.tsx";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { Provider } from "react-redux";
+import { store } from "./redux/app/store.ts";
 
 const client = new ApolloClient({
   uri: "https://rickandmortyapi.com/graphql",
@@ -13,7 +15,9 @@ const client = new ApolloClient({
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </ApolloProvider>
   </React.StrictMode>
 );

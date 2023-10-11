@@ -25,7 +25,7 @@ const Episodes = () => {
   const { results } = data?.episodes as { results: Episode[] };
 
   return (
-    <div className="grid grid-cols-6 gap-10 mt-20">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mt-28">
       {results?.map((episode) => {
         return epImages?.map((epImage: EpImageType) => {
           if (episode?.id === epImage.id) {

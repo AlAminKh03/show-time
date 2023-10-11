@@ -1,5 +1,11 @@
+import WatchLists from "../Components/Watchlist/WatchLists";
+
 const WatchList = () => {
-  return <div>WillWatchList</div>;
+  return (
+    <div>
+      <WatchLists />
+    </div>
+  );
 };
 
 export default WatchList;
