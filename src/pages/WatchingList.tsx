@@ -1,9 +1,11 @@
-import React from "react";
+import WatchingLists from "../Components/Watchlisting/WatchingLists";
 
-type Props = {};
-
-const WatchingList = (props: Props) => {
-  return <div>WatchingList</div>;
+const WatchingList = () => {
+  return (
+    <div>
+      <WatchingLists />
+    </div>
+  );
 };
 
 export default WatchingList;

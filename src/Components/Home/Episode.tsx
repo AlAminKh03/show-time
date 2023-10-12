@@ -12,7 +12,7 @@ import { setWatchlisted } from "../../redux/app/features/toggoleStatus";
 import { useEffect, useState } from "react";
 import { RootState } from "../../redux/app/store";
 
-const SinglEpisode = ({
+const SingleEpisode = ({
   episode,
   imgUrl,
 }: {
@@ -179,4 +179,4 @@ const SinglEpisode = ({
   );
 };
 
-export default SinglEpisode;
+export default SingleEpisode;

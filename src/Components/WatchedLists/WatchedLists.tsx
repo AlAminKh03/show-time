@@ -1,15 +1,14 @@
-import WatchList from "./WatchList";
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/app/store";
-import { epImages } from "../../utils/ImagesArray";
-import { EpImageType } from "../Home/Episodes";
-import { Episode } from "../../Graphql/__generated__/graphql";
-import { GET_EPISODES } from "../../Graphql/query";
 import { useQuery } from "@apollo/client";
 
-type Props = {};
+import { useSelector } from "react-redux";
+import { GET_EPISODES } from "../../Graphql/query";
+import { RootState } from "../../redux/app/store";
+import { Episode } from "../../Graphql/__generated__/graphql";
+import { EpImageType } from "../Home/Episodes";
+import { epImages } from "../../utils/ImagesArray";
+import WatchedList from "./WatchedList";
 
-const WatchLists = (props: Props) => {
+const WatchedLists = () => {
   const { data, error, loading } = useQuery(GET_EPISODES);
   const { watchLists } = useSelector((state: RootState) => state.toggole);
   if (loading) {
@@ -25,13 +24,13 @@ const WatchLists = (props: Props) => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mt-28">
       {watchLists?.map((watchlistItem: any) => {
-        if (watchlistItem.isWatchlisted) {
+        if (watchlistItem.isWatchedlisted) {
           return epImages?.map((epImage: EpImageType) => {
             if (watchlistItem?.id === epImage.id) {
               return results?.map((episode) => {
                 if (episode?.id === epImage.id) {
                   return (
-                    <WatchList
+                    <WatchedList
                       key={episode?.id}
                       watchlist={watchlistItem}
                       imgUrl={epImage.imgUrl}
@@ -48,4 +47,4 @@ const WatchLists = (props: Props) => {
   );
 };
 
-export default WatchLists;
+export default WatchedLists;
