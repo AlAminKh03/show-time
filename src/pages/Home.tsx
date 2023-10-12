@@ -1,5 +1,4 @@
 import Episodes from "../Components/Home/Episodes";
-import { ReactNode } from "react";
 
 const Home = () => {
   return (

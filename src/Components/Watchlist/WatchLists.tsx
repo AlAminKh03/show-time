@@ -7,9 +7,7 @@ import { Episode } from "../../Graphql/__generated__/graphql";
 import { GET_EPISODES } from "../../Graphql/query";
 import { useQuery } from "@apollo/client";
 
-type Props = {};
-
-const WatchLists = (props: Props) => {
+const WatchLists = () => {
   const { data, error, loading } = useQuery(GET_EPISODES);
   const { watchLists } = useSelector((state: RootState) => state.toggole);
   if (loading) {
